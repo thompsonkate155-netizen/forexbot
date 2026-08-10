@@ -1,190 +1,239 @@
-{
-  "name": "forex-news-bot",
-  "version": "1.0.0",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {
-    "": {
-      "name": "forex-news-bot",
-      "version": "1.0.0",
-      "dependencies": {
-        "telegraf": "^4.16.3"
-      },
-      "engines": {
-        "node": ">=18.0.0"
-      }
-    },
-    "node_modules/@telegraf/types": {
-      "version": "7.1.0",
-      "resolved": "https://registry.npmjs.org/@telegraf/types/-/types-7.1.0.tgz",
-      "integrity": "sha512-kGevOIbpMcIlCDeorKGpwZmdH7kHbqlk/Yj6dEpJMKEQw5lk0KVQY0OLXaCswy8GqlIVLd5625OB+rAntP9xVw==",
-      "license": "MIT"
-    },
-    "node_modules/abort-controller": {
-      "version": "3.0.0",
-      "resolved": "https://registry.npmjs.org/abort-controller/-/abort-controller-3.0.0.tgz",
-      "integrity": "sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==",
-      "license": "MIT",
-      "dependencies": {
-        "event-target-shim": "^5.0.0"
-      },
-      "engines": {
-        "node": ">=6.5"
-      }
-    },
-    "node_modules/buffer-alloc": {
-      "version": "1.2.0",
-      "resolved": "https://registry.npmjs.org/buffer-alloc/-/buffer-alloc-1.2.0.tgz",
-      "integrity": "sha512-CFsHQgjtW1UChdXgbyJGtnm+O/uLQeZdtbDo8mfUgYXCHSM1wgrVxXm6bSyrUuErEb+4sYVGCzASBRot7zyrow==",
-      "license": "MIT",
-      "dependencies": {
-        "buffer-alloc-unsafe": "^1.1.0",
-        "buffer-fill": "^1.0.0"
-      }
-    },
-    "node_modules/buffer-alloc-unsafe": {
-      "version": "1.1.0",
-      "resolved": "https://registry.npmjs.org/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz",
-      "integrity": "sha512-TEM2iMIEQdJ2yjPJoSIsldnleVaAk1oW3DBVUykyOLsEsFmEc9kn+SFFPz+gl54KQNxlDnAwCXosOS9Okx2xAg==",
-      "license": "MIT"
-    },
-    "node_modules/buffer-fill": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/buffer-fill/-/buffer-fill-1.0.0.tgz",
-      "integrity": "sha512-T7zexNBwiiaCOGDg9xNX9PBmjrubblRkENuptryuI64URkXDFum9il/JGL8Lm8wYfAXpredVXXZz7eMHilimiQ==",
-      "license": "MIT"
-    },
-    "node_modules/debug": {
-      "version": "4.4.3",
-      "resolved": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
-      "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
-      "license": "MIT",
-      "dependencies": {
-        "ms": "^2.1.3"
-      },
-      "engines": {
-        "node": ">=6.0"
-      },
-      "peerDependenciesMeta": {
-        "supports-color": {
-          "optional": true
-        }
-      }
-    },
-    "node_modules/event-target-shim": {
-      "version": "5.0.1",
-      "resolved": "https://registry.npmjs.org/event-target-shim/-/event-target-shim-5.0.1.tgz",
-      "integrity": "sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==",
-      "license": "MIT",
-      "engines": {
-        "node": ">=6"
-      }
-    },
-    "node_modules/mri": {
-      "version": "1.2.0",
-      "resolved": "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz",
-      "integrity": "sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==",
-      "license": "MIT",
-      "engines": {
-        "node": ">=4"
-      }
-    },
-    "node_modules/ms": {
-      "version": "2.1.3",
-      "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
-      "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
-      "license": "MIT"
-    },
-    "node_modules/node-fetch": {
-      "version": "2.7.0",
-      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz",
-      "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
-      "license": "MIT",
-      "dependencies": {
-        "whatwg-url": "^5.0.0"
-      },
-      "engines": {
-        "node": "4.x || >=6.0.0"
-      },
-      "peerDependencies": {
-        "encoding": "^0.1.0"
-      },
-      "peerDependenciesMeta": {
-        "encoding": {
-          "optional": true
-        }
-      }
-    },
-    "node_modules/p-timeout": {
-      "version": "4.1.0",
-      "resolved": "https://registry.npmjs.org/p-timeout/-/p-timeout-4.1.0.tgz",
-      "integrity": "sha512-+/wmHtzJuWii1sXn3HCuH/FTwGhrp4tmJTxSKJbfS+vkipci6osxXM5mY0jUiRzWKMTgUT8l7HFbeSwZAynqHw==",
-      "license": "MIT",
-      "engines": {
-        "node": ">=10"
-      }
-    },
-    "node_modules/safe-compare": {
-      "version": "1.1.4",
-      "resolved": "https://registry.npmjs.org/safe-compare/-/safe-compare-1.1.4.tgz",
-      "integrity": "sha512-b9wZ986HHCo/HbKrRpBJb2kqXMK9CEWIE1egeEvZsYn69ay3kdfl9nG3RyOcR+jInTDf7a86WQ1d4VJX7goSSQ==",
-      "license": "MIT",
-      "dependencies": {
-        "buffer-alloc": "^1.2.0"
-      }
-    },
-    "node_modules/sandwich-stream": {
-      "version": "2.0.2",
-      "resolved": "https://registry.npmjs.org/sandwich-stream/-/sandwich-stream-2.0.2.tgz",
-      "integrity": "sha512-jLYV0DORrzY3xaz/S9ydJL6Iz7essZeAfnAavsJ+zsJGZ1MOnsS52yRjU3uF3pJa/lla7+wisp//fxOwOH8SKQ==",
-      "license": "Apache-2.0",
-      "engines": {
-        "node": ">= 0.10"
-      }
-    },
-    "node_modules/telegraf": {
-      "version": "4.16.3",
-      "resolved": "https://registry.npmjs.org/telegraf/-/telegraf-4.16.3.tgz",
-      "integrity": "sha512-yjEu2NwkHlXu0OARWoNhJlIjX09dRktiMQFsM678BAH/PEPVwctzL67+tvXqLCRQQvm3SDtki2saGO9hLlz68w==",
-      "license": "MIT",
-      "dependencies": {
-        "@telegraf/types": "^7.1.0",
-        "abort-controller": "^3.0.0",
-        "debug": "^4.3.4",
-        "mri": "^1.2.0",
-        "node-fetch": "^2.7.0",
-        "p-timeout": "^4.1.0",
-        "safe-compare": "^1.1.4",
-        "sandwich-stream": "^2.0.2"
-      },
-      "bin": {
-        "telegraf": "lib/cli.mjs"
-      },
-      "engines": {
-        "node": "^12.20.0 || >=14.13.1"
-      }
-    },
-    "node_modules/tr46": {
-      "version": "0.0.3",
-      "resolved": "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz",
-      "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==",
-      "license": "MIT"
-    },
-    "node_modules/webidl-conversions": {
-      "version": "3.0.1",
-      "resolved": "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz",
-      "integrity": "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==",
-      "license": "BSD-2-Clause"
-    },
-    "node_modules/whatwg-url": {
-      "version": "5.0.0",
-      "resolved": "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz",
-      "integrity": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==",
-      "license": "MIT",
-      "dependencies": {
-        "tr46": "~0.0.3",
-        "webidl-conversions": "^3.0.0"
-      }
-    }
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const { Telegraf } = require('telegraf');
+
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const FINNHUB_API_KEY = process.env.FINNHUB_API_KEY;
+const PORT = process.env.PORT || 3000;
+const NOTIFY_INTERVAL_MINUTES = Number(process.env.NOTIFY_INTERVAL_MINUTES || 240); // default every 4h
+// Point this at a Railway Volume mount (e.g. /data) if you want subscriber
+// lists to survive redeploys. Defaults to local disk, which is fine to start
+// but resets on every new deploy.
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+const STATE_FILE = path.join(DATA_DIR, 'state.json');
+
+if (!BOT_TOKEN) {
+  console.error('Missing BOT_TOKEN environment variable. Get one from @BotFather and set it in Railway → Variables.');
+  process.exit(1);
+}
+
+const bot = new Telegraf(BOT_TOKEN);
+
+// ---------------------------------------------------------------------------
+// Tiny JSON-file "database" for subscribers + last-seen news id.
+// ---------------------------------------------------------------------------
+function loadState() {
+  try {
+    return JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
+  } catch (e) {
+    return { subscribers: [], lastNewsId: null };
   }
 }
+function saveState(state) {
+  try {
+    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+  } catch (e) {
+    console.error('Could not persist state:', e.message);
+  }
+}
+let state = loadState();
+
+// ---------------------------------------------------------------------------
+// Data sources
+// ---------------------------------------------------------------------------
+const RATE_PAIRS = [
+  ['EUR', 'USD'],
+  ['GBP', 'USD'],
+  ['USD', 'JPY'],
+  ['USD', 'CHF'],
+  ['AUD', 'USD'],
+  ['USD', 'CAD'],
+  ['NZD', 'USD']
+];
+
+async function fetchRates() {
+  const byBase = {};
+  RATE_PAIRS.forEach(([base, quote]) => {
+    byBase[base] = byBase[base] || [];
+    byBase[base].push(quote);
+  });
+
+  const entries = await Promise.all(
+    Object.entries(byBase).map(async ([base, quotes]) => {
+      const url = `https://api.frankfurter.app/latest?from=${base}&to=${quotes.join(',')}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`Frankfurter responded ${res.status}`);
+      const data = await res.json();
+      return { base, rates: data.rates };
+    })
+  );
+
+  const byBaseResult = {};
+  entries.forEach((e) => (byBaseResult[e.base] = e.rates));
+
+  return RATE_PAIRS.map(([base, quote]) => ({
+    pair: `${base}/${quote}`,
+    rate: byBaseResult[base] && byBaseResult[base][quote]
+  }));
+}
+
+async function fetchForexNews(limit = 5) {
+  if (!FINNHUB_API_KEY) {
+    throw new Error('NO_API_KEY');
+  }
+  const url = `https://finnhub.io/api/v1/news?category=forex&token=${FINNHUB_API_KEY}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    if (res.status === 401 || res.status === 403) throw new Error('UNAUTHORIZED');
+    throw new Error(`Finnhub responded ${res.status}`);
+  }
+  const data = await res.json();
+  return (Array.isArray(data) ? data : []).slice(0, limit);
+}
+
+async function fetchEconomicCalendar() {
+  if (!FINNHUB_API_KEY) {
+    throw new Error('NO_API_KEY');
+  }
+  const url = `https://finnhub.io/api/v1/calendar/economic?token=${FINNHUB_API_KEY}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    if (res.status === 401 || res.status === 403) throw new Error('UNAUTHORIZED');
+    throw new Error(`Finnhub responded ${res.status}`);
+  }
+  const data = await res.json();
+  return Array.isArray(data.economicCalendar) ? data.economicCalendar : [];
+}
+
+// ---------------------------------------------------------------------------
+// Formatting helpers
+// ---------------------------------------------------------------------------
+function fmtNewsItem(item) {
+  const date = new Date(item.datetime * 1000);
+  const timeStr = date.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+  return `*${item.headline}*\n${item.source} · ${timeStr}\n${item.url}`;
+}
+
+function fmtRates(rates) {
+  const lines = rates
+    .filter((r) => typeof r.rate === 'number')
+    .map((r) => `${r.pair.padEnd(8)} ${r.rate.toFixed(4)}`);
+  return '📈 *Major Forex Rates*\n\n```\n' + lines.join('\n') + '\n```';
+}
+
+function fmtCalendar(events) {
+  if (!events.length) return "No major economic events found for the current window.";
+  const top = events.slice(0, 8);
+  const lines = top.map((e) => {
+    const impact = e.impact ? `[${e.impact}]` : '';
+    return `• ${e.time || ''} *${e.event || 'Event'}* ${impact} — ${e.country || ''}`;
+  });
+  return '🌍 *Upcoming Economic Events*\n\n' + lines.join('\n');
+}
+
+const WELCOME_TEXT =
+  '📊 *Forex News Bot*\n\n' +
+  'Stay updated with the latest Forex market news, currency movements, economic ' +
+  'events, and key market updates — all in one place.\n\n' +
+  '⚡️ Fast Market Updates\n' +
+  '📈 Forex News & Insights\n' +
+  '🌍 Global Economic Events\n' +
+  '🔔 Timely Notifications\n\n' +
+  '*Commands*\n' +
+  '/news — latest forex headlines\n' +
+  '/rates — major currency pair snapshot\n' +
+  '/calendar — upcoming economic events\n' +
+  '/subscribe — get periodic news alerts here\n' +
+  '/unsubscribe — stop alerts';
+
+// ---------------------------------------------------------------------------
+// Commands
+// ---------------------------------------------------------------------------
+bot.start((ctx) => ctx.replyWithMarkdown(WELCOME_TEXT));
+bot.help((ctx) => ctx.replyWithMarkdown(WELCOME_TEXT));
+
+bot.command('news', async (ctx) => {
+  const statusMsg = await ctx.reply('Fetching latest forex news…');
+  try {
+    const items = await fetchForexNews(5);
+    if (!items.length) throw new Error('EMPTY');
+    const text = items.map(fmtNewsItem).join('\n\n');
+    await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, text, {
+      parse_mode: 'Markdown',
+      disable_web_page_preview: true
+    });
+  } catch (err) {
+    await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, newsErrorText(err));
+  }
+});
+
+bot.command('rates', async (ctx) => {
+  const statusMsg = await ctx.reply('Fetching latest rates…');
+  try {
+    const rates = await fetchRates();
+    await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, fmtRates(rates), {
+      parse_mode: 'Markdown'
+    });
+  } catch (err) {
+    console.error('rates command failed:', err);
+    await ctx.telegram.editMessageText(
+      ctx.chat.id,
+      statusMsg.message_id,
+      undefined,
+      "⚠️ Couldn't reach the rates feed just now. Try again in a moment."
+    );
+  }
+});
+
+bot.command('calendar', async (ctx) => {
+  const statusMsg = await ctx.reply('Checking the economic calendar…');
+  try {
+    const events = await fetchEconomicCalendar();
+    await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, fmtCalendar(events), {
+      parse_mode: 'Markdown'
+    });
+  } catch (err) {
+    await ctx.telegram.editMessageText(ctx.chat.id, statusMsg.message_id, undefined, calendarErrorText(err));
+  }
+});
+
+bot.command('subscribe', async (ctx) => {
+  const id = ctx.chat.id;
+  if (!state.subscribers.includes(id)) {
+    state.subscribers.push(id);
+    saveState(state);
+  }
+  await ctx.reply(`🔔 Subscribed. I'll send fresh forex headlines here roughly every ${NOTIFY_INTERVAL_MINUTES} minutes.`);
+});
+
+bot.command('unsubscribe', async (ctx) => {
+  const id = ctx.chat.id;
+  state.subscribers = state.subscribers.filter((s) => s !== id);
+  saveState(state);
+  await ctx.reply('🔕 Unsubscribed — no more automatic alerts here.');
+});
+
+function newsErrorText(err) {
+  if (err.message === 'NO_API_KEY') {
+    return "⚠️ News isn't configured yet — missing FINNHUB_API_KEY on the server.";
+  }
+  if (err.message === 'UNAUTHORIZED') {
+    return '⚠️ The configured Finnhub key was rejected for the news feed. Double-check the key and its plan.';
+  }
+  return "⚠️ Couldn't reach the news feed just now. Try again in a moment.";
+}
+function calendarErrorText(err) {
+  if (err.message === 'NO_API_KEY') {
+    return "⚠️ The economic calendar isn't configured yet — missing FINNHUB_API_KEY on the server.";
+  }
+  if (err.message === 'UNAUTHORIZED') {
+    return (
+      "⚠️ Finnhub's economic calendar endpoint isn't available on the current API plan.\n" +
+      'You can check one for free at https://www.forexfactory.com/calendar in the meantime.'
+    );
+  }
+  return "⚠️ Couldn't reach the economic calendar just now. Try again in a moment.";
+}
+
+bot.catch((err, ctx) => {
