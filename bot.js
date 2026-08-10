@@ -237,3 +237,58 @@ function calendarErrorText(err) {
 }
 
 bot.catch((err, ctx) => {
+  console.error(`Unhandled error for ${ctx.updateType}:`, err);
+});
+
+// ---------------------------------------------------------------------------
+// Periodic notifications: check for fresh news, push to subscribers.
+// ---------------------------------------------------------------------------
+async function checkAndNotify() {
+  if (!FINNHUB_API_KEY || state.subscribers.length === 0) return;
+  try {
+    const items = await fetchForexNews(5);
+    if (!items.length) return;
+
+    const freshItems = state.lastNewsId
+      ? items.filter((i) => i.id > state.lastNewsId)
+      : [items[0]];
+
+    if (freshItems.length === 0) return;
+
+    state.lastNewsId = Math.max(...items.map((i) => i.id));
+    saveState(state);
+
+    const text = '🔔 *Fresh Forex Headlines*\n\n' + freshItems.map(fmtNewsItem).join('\n\n');
+
+    for (const chatId of state.subscribers) {
+      try {
+        await bot.telegram.sendMessage(chatId, text, { parse_mode: 'Markdown', disable_web_page_preview: true });
+      } catch (err) {
+        console.error(`Failed to notify ${chatId}, removing subscriber:`, err.message);
+        state.subscribers = state.subscribers.filter((s) => s !== chatId);
+        saveState(state);
+      }
+    }
+  } catch (err) {
+    console.error('checkAndNotify failed:', err.message);
+  }
+}
+
+setInterval(checkAndNotify, NOTIFY_INTERVAL_MINUTES * 60 * 1000);
+
+// ---------------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------------
+bot.launch().then(() => {
+  console.log('Forex News Bot is up and polling for updates.');
+});
+
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Forex News Bot is running.');
+  })
+  .listen(PORT, () => console.log(`Health check server listening on port ${PORT}`));
+
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));
